@@ -22,6 +22,7 @@ app.use(function validateBearerToken(req, res, next) {
   next()
 })
 
+
 app.use((error, req, res, next) => {
   let response
   if (process.env.NODE_ENV === 'production') {
@@ -55,7 +56,7 @@ app.get('/movies', function handleGetMovies(req, res) {
   res.send(response)
 })
 
-const PORT = 9000
+const PORT = process.env.PORT || 8000
 
 app.listen(PORT, () => {
 })
